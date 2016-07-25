@@ -1,6 +1,6 @@
 {
   "name": "lib",
-  "homepage": "https://github.com/iamtylerd/ng-todo-live",
+  "homepage": "https://github.com/nss-day-cohort-14/d14-pinterest-project-somepinterestpun",
   "authors": [
     "iamtylerd <tylerdanielphotography@gmail.com>"
   ],
@@ -20,6 +20,6 @@
     "angularfire": "^2.0.1",
     "bootstrap": "^3.3.6",
     "firebase": "^3.2.0",
-    "jquery": "^3.1.0"
+    "jquery": "^1.9.1 - 2"
   }
 }
