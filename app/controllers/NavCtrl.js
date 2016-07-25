@@ -8,18 +8,24 @@ app.controller('NavCtrl', function($scope, $location, UserFactory){
 				let currentUser = firebase.auth().currentUser;
 				let currentUid = firebase.auth().currentUser.uid;
 				let userArray = [];
+				let userExists = null
 				for (user in userList){
 					let index = userList[user];
-					if(currentUid != index.uid){
-						let userObject = {
-							name: currentUser.displayName,
-							email: currentUser.email,
-							uid: currentUser.uid
-						}
-						userArray.push(userObject);
+					if(currentUid === index.uid){
+						userExists = true;
+					}
+					else {
+						userExists = false;
 					}
 				}
-				UserFactory.createUser(userArray[0])
+				if(userExists === false){
+					let userObject = {
+						name: currentUser.displayName,
+						email: currentUser.email,
+						uid: currentUser.uid
+					}
+					UserFactory.createUser(userObject)
+				}
 			})
 		})
 	}
