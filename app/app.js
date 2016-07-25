@@ -9,10 +9,10 @@ app.config(function($routeProvider) {
     //     authDomain: FBCreds.authDomain
     // };
     // firebase.initializeApp(authConfig);
-    
+
     $routeProvider.
         when('/', {
-        	templateUrl: 'splash.html',
+        	templateUrl: 'partials/splash.html',
         	controller: 'NavCtrl'
         }).
         when('/profile', {
