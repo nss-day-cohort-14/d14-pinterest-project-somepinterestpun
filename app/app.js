@@ -4,16 +4,7 @@ var app = angular.module('app', ['ngRoute'])
 .constant('FirebaseURL', "https://group-project-somepinterestpun.firebaseio.com/");
 
 app.config(function($routeProvider) {
-<<<<<<< HEAD
-    
-=======
-    // let authConfig = {
-    //     apiKey: FBCreds.apiKey,
-    //     authDomain: FBCreds.authDomain
-    // };
-    // firebase.initializeApp(authConfig);
 
->>>>>>> master
     $routeProvider.
         when('/', {
         	templateUrl: 'partials/splash.html',
@@ -27,7 +18,7 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/board.html',
             controller: 'BoardCtrl'
         }).
-         when('/profile/pin', {
+         when('/pin', {
             templateUrl: 'partials/pin.html',
             controller: 'pinCtrl'
         }).

@@ -1,16 +1,9 @@
-<<<<<<< HEAD
+
 'use strict';
-
-app.factory("UserFactory", function($http,$q,FirebaseURL){
-
-        let getUserList = function(){
-        let users = [];
-=======
 app.factory("UserFactory", function($http,$q,FirebaseURL){
 
 		let getUserList = function(){
 		let users = [];
->>>>>>> master
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/users.json`)
       .success(function(usersArray) {
@@ -27,13 +20,8 @@ app.factory("UserFactory", function($http,$q,FirebaseURL){
         reject(error);
       })
     });
-<<<<<<< HEAD
-    }
-      let createUser = function(newUser) {
-=======
 	}
 	  let createUser = function(newUser) {
->>>>>>> master
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/users.json`, ////////this posts to FB database///////////
         JSON.stringify(newUser))
@@ -45,9 +33,7 @@ app.factory("UserFactory", function($http,$q,FirebaseURL){
       });
     });
   };
-<<<<<<< HEAD
-    return {getUserList, createUser}
-=======
+
 	return {getUserList, createUser}
->>>>>>> master
+
 })
