@@ -1,3 +1,5 @@
+
+'use strict';
 app.factory("UserFactory", function($http,$q,FirebaseURL){
 
 		let getUserList = function(){
@@ -31,5 +33,7 @@ app.factory("UserFactory", function($http,$q,FirebaseURL){
       });
     });
   };
+
 	return {getUserList, createUser}
+
 })

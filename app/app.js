@@ -4,11 +4,6 @@ var app = angular.module('app', ['ngRoute'])
 .constant('FirebaseURL', "https://group-project-somepinterestpun.firebaseio.com/");
 
 app.config(function($routeProvider) {
-    // let authConfig = {
-    //     apiKey: FBCreds.apiKey,
-    //     authDomain: FBCreds.authDomain
-    // };
-    // firebase.initializeApp(authConfig);
 
     $routeProvider.
         when('/', {
@@ -19,13 +14,13 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/profile.html',
             controller: 'ProfileCtrl'
         }).
-        when('/profile/board', {
+        when('/profile/board/:id', {
             templateUrl: 'partials/board.html',
             controller: 'BoardCtrl'
         }).
-        when('/profile/board/:pinId', {
+         when('/pin', {
             templateUrl: 'partials/pin.html',
-            controller: 'PinCtrl'
+            controller: 'pinCtrl'
         }).
         otherwise('/profile');
 });
