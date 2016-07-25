@@ -7,13 +7,19 @@
 	<link rel="stylesheet" href="styles/main.css">
 	<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 </head>
-<body>
+<body ng-app="app">
+<div>
+</div>
+	<div ng-include="'./partials/nav.html'"></div>
+	<div id="container">
+		<div ng-view></div>
+	</div>
 
 	<script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
 	<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
 	<script ng-include src="partials/fireinit.html"></script>
-	<script src="app/app.js"></script>
-	<script src="app/controllers/NavCtrl.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
 </body>
 </html>
