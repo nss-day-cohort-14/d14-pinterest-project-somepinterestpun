@@ -1,4 +1,5 @@
 "use strict";
+
 app.controller('NavCtrl', function($scope, $location, UserFactory){
 	$scope.login = function(){
 		let provider = new firebase.auth.GoogleAuthProvider();
@@ -27,8 +28,12 @@ app.controller('NavCtrl', function($scope, $location, UserFactory){
 					UserFactory.createUser(userObject)
 				}
 			})
+			.then(function () {
+				$location.url('/profile')
+			})
 		})
 	}
+
 	$scope.logout = function(){
 		firebase.auth().signOut();
 		$location.url("/");
