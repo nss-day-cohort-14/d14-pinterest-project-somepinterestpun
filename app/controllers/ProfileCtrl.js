@@ -1,10 +1,20 @@
 "use strict";
 
-app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory, FirebaseURL, localStorageService) {
+app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory, FirebaseURL, localStorageService, PinFactory) {
 	BoardFactory.getBoards()
 	.then(function(boardCollection) {
 		$scope.boards = boardCollection
 		return boardCollection;
+	})
+	.then(function(){
+		$scope.boardNumber = $scope.boards.length;
+		console.log("yo", $scope.boardNumber)
+	})
+
+	PinFactory.getAllPins()
+	.then(function(pins){
+		$scope.pinNumber = pins.length;
+		console.log("pinnum", $scope.pinNumber)
 	})
 
 	$scope.Remove = function (removeId) {

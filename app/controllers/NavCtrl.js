@@ -1,7 +1,7 @@
 "use strict";
 
 app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageService, $rootScope){
-	let userExists = null
+	let userExists = false
 	let currentUser = null
 
 	$rootScope.searchText = {};
@@ -19,10 +19,7 @@ app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageS
 					let index = userList[user];
 					console.log("uid", index.uid)
 					if(currentUid === index.uid){
-						userExists = true;
-					}
-					else {
-						userExists = false;
+							userExists = true;
 					}
 				}
 			})
