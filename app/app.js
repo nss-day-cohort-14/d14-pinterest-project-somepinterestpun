@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('app', ['ngRoute'])
+var app = angular.module('app', ['ngRoute', "LocalStorageModule"])
 .constant('FirebaseURL', "https://group-project-somepinterestpun.firebaseio.com/");
 
 app.config(function($routeProvider) {
