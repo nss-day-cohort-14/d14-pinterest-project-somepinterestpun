@@ -9,18 +9,7 @@ app.controller('BoardCtrl', function($scope, $location, PinFactory, UserFactory,
   .then(function(){
     console.log($scope.pins);
   })
-	// .then(function (test) {
-	// 		PinFactory.saveId(test);
-	// 		console.log("after", test)
-	// 	});
-	// $scope.DisplayBoardDetails = function () {
-	// 	let boardObj = {}
-	// 	 boardObj.name = firebase.auth().currentUser.displayName;
-	// 	 boardObj.email = firebase.auth().currentUser.email;
-	// 	return boardObj
-	// }
-	// $scope.board = $scope.DisplayBoardDetails()
-	// console.log($scope.board);
+	
   $scope.createPin = function(){
     let currentUser = localStorageService.get("currentUser");
         let newPin = {
