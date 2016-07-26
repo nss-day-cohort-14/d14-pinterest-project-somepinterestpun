@@ -36,6 +36,29 @@ app.factory("BoardFactory", function(FirebaseURL, $q, $http){
                     reject (error);
                 });
         });
-	}
-	return {getBoards, saveId}
+	};
+
+	let deleteBoard = function(removeId) {
+        let boardUrl = FirebaseURL + "/board/" + removeId + ".json";
+        return $q(function(resolve, reject) {
+            $http.delete(boardUrl)
+            .success(function() {
+                resolve();
+        });
+      });  
+    };
+
+    let postNewBoard = function(newBoard) {
+        return $q(function(resolve, reject) {
+            $http.post(`${FirebaseURL}/board.json`,
+                JSON.stringify(newBoard))
+                .success(function(ObjFromFirebase) {
+                    resolve(ObjFromFirebase)
+                })
+                .error(function (error) {
+                    reject (error);
+                });
+        });
+    };
+	return {getBoards, saveId, deleteBoard, postNewBoard}
 });

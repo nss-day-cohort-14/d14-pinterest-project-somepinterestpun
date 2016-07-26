@@ -48,5 +48,6 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 
 	$scope.ShowNewBoard = false;
 
+
 })
-Contact GitHub API Training Shop Blog About
+
