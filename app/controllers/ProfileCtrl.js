@@ -38,3 +38,5 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 	$scope.ShowNewBoard = false;
 
 })
+
+
