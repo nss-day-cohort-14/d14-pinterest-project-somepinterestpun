@@ -21,12 +21,31 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 	console.log($scope.user);
 
 	$scope.Remove = function (removeId) {
-		BoardFactory.deleteItem(removeId)
+		BoardFactory.deleteBoard(removeId)
 		.then(function () {
 			BoardFactory.getBoards()
 			.then(function (boardCollection) {
 			$scope.boards = boardCollection
-		});
+			});
 		});
 	}
+
+	$scope.newBoard = {
+		description: "",
+		title: "",
+		uid: firebase.auth().currentUser.uid
+	};
+
+	$scope.AddBoard = function () {
+		BoardFactory.postNewBoard($scope.newBoard)
+		.then(function (response) {
+			$scope.ShowNewBoard = false;
+			BoardFactory.getBoards()
+			$location.url("/profile");
+			$scope.$apply();
+		})
+	};
+
+	$scope.ShowNewBoard = false;
+
 })
