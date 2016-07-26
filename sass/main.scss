@@ -21,13 +21,16 @@
 	-webkit-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
 	-moz-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
 	box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
-	// input {
-	// 	margin-left: 20%;
-	// }
-	// button {
-	// 	margin-left: 40%;
-	// }
+
+  h2 {
+    text-align: center;
+  }
+
+  input {
+    display: block;
+  }
 }
+
 
 
 // .make-xs-column(@columns; @gutter: @grid-gutter-width) {
@@ -90,7 +93,7 @@
       border: 3px solid white;
       position: inherit;
       margin-left: 120px;
-      margin-top: 60px;
+      margin-top: 75px;
       border-radius: 35px 35px;
       text-decoration: none;
       text-align: center;
