@@ -1,15 +1,12 @@
 "use strict";
 
-app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory) {
+app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory, FirebaseURL) {
 	BoardFactory.getBoards()
 	.then(function(boardCollection) {
 		$scope.boards = boardCollection
 		return boardCollection;
 	})
-	// .then(function (test) {
-	// 		BoardFactory.saveId(test);
-	// 		console.log("after", test)
-	// 	});
+	
 
 	$scope.DisplayUserDetails = function () {
 		let userObj = {}
@@ -41,10 +38,11 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 		.then(function (response) {
 			$scope.ShowNewBoard = false;
 			BoardFactory.getBoards()
-			$location.url("/profile");
-			$scope.$apply();
-		})
-	};
+			.then(function (boardCollection) {
+			$scope.boards = boardCollection
+			});
+		});
+	}
 
 	$scope.ShowNewBoard = false;
 
