@@ -1,6 +1,6 @@
 <button class="newBtnBoard btn btn-normal" ng-click="ShowNewPin = !ShowNewPin">Add New Pin</button>
 <div class="row">
-<div ng-repeat="pin in pins">
+<div ng-repeat="pin in pins | filter: searchText.search">
 
 			<div class="panel panel-default">
 				<div class="panel-body">
