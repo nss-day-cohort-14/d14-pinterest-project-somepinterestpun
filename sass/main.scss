@@ -27,3 +27,82 @@
 	// 	margin-left: 40%;
 	// }
 }
+
+
+
+// .make-xs-column(@columns; @gutter: @grid-gutter-width) {
+//   position: relative;
+//   // Prevent columns from collapsing when empty
+//   min-height: 1px;
+//   // Inner gutter via padding
+//   padding-left:  (@gutter / 2);
+//   padding-right: (@gutter / 2);
+//
+//   // Calculate width based on number of columns available
+//   @media (min-width: @grid-float-breakpoint) {
+//     float: left;
+//     width: percentage((@columns / @grid-columns));
+//   }
+// };
+
+#splashView {
+  font-family: 'Titillium Web', sans-serif;
+  height: 800px;
+  box-sizing: border-box;
+
+  #heroImg {
+    position: absolute;
+    // border: 3px solid white;
+    margin: -20px 9% 0;
+    height: 800px;
+    width: 80%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/flower-share.jpeg");
+    background-position: top;
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+
+
+    #tagline {
+      font-size: 3em;
+      display: block;
+      // position: relative;
+      float: right;
+      text-align: center;
+      color: white;
+      width: 30%;
+      margin-top: 40px;
+      margin-right: 20px;
+    }
+
+    #punterest {
+      font-family: 'Shrikhand', cursive;
+      font-size: 9em;
+      color: white;
+      text-align: center;
+      margin-top: 300px;
+
+    }
+    #bigAssLogin {
+      display: block;
+      height: 80px;
+      width: 220px;
+      background: #e67e22;
+      border: 3px solid white;
+      position: inherit;
+      margin-left: 120px;
+      margin-top: 60px;
+      border-radius: 35px 35px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.3em;
+      color: white;
+      -webkit-box-shadow: 13px 13px 52px 10px rgba(0,0,0,0.75);
+      -moz-box-shadow: 13px 13px 52px 10px rgba(0,0,0,0.75);
+      box-shadow: 13px 13px 52px 10px rgba(0,0,0,0.75);
+
+      p {
+        margin-top: 22px;
+      }
+    }
+  }
+}

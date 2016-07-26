@@ -1,24 +1,21 @@
 "use strict";
 
-app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory) {
+app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFactory, FirebaseURL, localStorageService) {
 	BoardFactory.getBoards()
 	.then(function(boardCollection) {
 		$scope.boards = boardCollection
 		return boardCollection;
 	})
-	// .then(function (test) {
-	// 		BoardFactory.saveId(test);
-	// 		console.log("after", test)
-	// 	});
 
-	$scope.DisplayUserDetails = function () {
-		let userObj = {}
-		 userObj.name = firebase.auth().currentUser.displayName;
-		 userObj.email = firebase.auth().currentUser.email;
-		return userObj
-	}
-	$scope.user = $scope.DisplayUserDetails()
-	console.log($scope.user);
+	//
+	// $scope.DisplayUserDetails = function () {
+	// 	let userObj = {}
+	// 	 userObj.name = firebase.auth().currentUser.displayName;
+	// 	 userObj.email = firebase.auth().currentUser.email;
+	// 	return userObj
+	// }
+	// $scope.user = $scope.DisplayUserDetails()
+	// console.log($scope.user);
 
 	$scope.Remove = function (removeId) {
 		BoardFactory.deleteBoard(removeId)
@@ -29,11 +26,11 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 			});
 		});
 	}
-
+let currentUser = localStorageService.get("currentUser");
 	$scope.newBoard = {
 		description: "",
 		title: "",
-		uid: firebase.auth().currentUser.uid
+		uid: currentUser.uid
 	};
 
 	$scope.AddBoard = function () {
@@ -41,10 +38,11 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 		.then(function (response) {
 			$scope.ShowNewBoard = false;
 			BoardFactory.getBoards()
-			$location.url("/profile");
-			$scope.$apply();
-		})
-	};
+			.then(function (boardCollection) {
+			$scope.boards = boardCollection
+			});
+		});
+	}
 
 	$scope.ShowNewBoard = false;
 
