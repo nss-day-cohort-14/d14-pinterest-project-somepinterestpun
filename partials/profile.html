@@ -1,11 +1,13 @@
-<h1>Hello, {{user.displayName}}</h1>
-<h3>{{boardNumber}}</h3>
-<h3>{{pinNumber}}</h3>
-<h5><a href="mailto:{{user.email}}?Subject=Notification%20from%20Pinterest">{{user.email}}</a></h5>
+<div class="welcome">
+	<h1>Hello, {{user.displayName}}!</h1>
+	<h3>{{boardNumber}}</h3>
+	<h3>{{pinNumber}}</h3>
+	<h5><a href="mailto:{{user.email}}?Subject=Notification%20from%20Pinterest">{{user.email}}</a></h5>
+</div>
+
 <button class="newBtnBoard btn btn-normal" ng-click="ShowNewBoard = !ShowNewBoard">Add New Board</button>
 <div class="row">
-<div ng-repeat="board in boards | filter:searchText.search">
-
+	<div ng-repeat="board in boards | filter:searchText.search">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="col-xs-7 profCard">
@@ -18,11 +20,16 @@
 				</div>
 			</div>
 		</div>
-</div>
+	</div>
+
 
 <div class="newBoard" ng-show="ShowNewBoard">
+	<h2>Make a new board!</h2>
 	<input type="text" placeholder="Title" ng-model="newBoard.title"/>
 	<input type="text" placeholder="Description" ng-model="newBoard.description"/>
-	<button class="btn btn-normal" ng-click="AddBoard()">Add</button>
-	<button class="btn btn-danger" ng-click="ShowNewBoard = !ShowNewBoard">X</button>
+	<div class="boardBtnBox">
+		<button class="btn btn-normal" ng-click="AddBoard()">Add</button>
+		<button class="btn btn-danger" ng-click="ShowNewBoard = !ShowNewBoard">X</button>
+	</div>
+	<img src="img/puddle-jump.jpeg" />
 </div>
