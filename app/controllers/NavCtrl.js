@@ -1,17 +1,20 @@
 "use strict";
 
 app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageService){
+	let userExists = null
+	let currentUser = null
 	$scope.login = function(){
 		let provider = new firebase.auth.GoogleAuthProvider();
 		firebase.auth().signInWithPopup(provider).then(function(user){
 			UserFactory.getUserList()
 			.then(function(userList){
-				let currentUser = firebase.auth().currentUser;
+				currentUser = firebase.auth().currentUser;
 				let currentUid = firebase.auth().currentUser.uid;
+				console.log("currentUser", currentUid)
 				let userArray = [];
-				let userExists = null
 				for (user in userList){
 					let index = userList[user];
+					console.log("uid", index.uid)
 					if(currentUid === index.uid){
 						userExists = true;
 					}
@@ -19,6 +22,8 @@ app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageS
 						userExists = false;
 					}
 				}
+			})
+			.then(function(){
 				if(userExists === false){
 					let userObject = {
 						name: currentUser.displayName,
