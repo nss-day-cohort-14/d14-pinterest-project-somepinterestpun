@@ -16,7 +16,11 @@
 </div>
 
 <div class="newBoard" ng-show="ShowNewPin">
+	<h2>Make a new pin!</h2>
 	<input type="text" placeholder="Title" ng-model="pinTitle"/>
-	<input type="text" placeholder="URL" ng-model="pinUrl"/>
-	<button class="btn btn-normal" ng-click="ShowNewPin = !ShowNewPin; createPin()">Create New Pin</button>
+	<input type="text" placeholder="Image URL" ng-model="pinUrl"/>
+	<div class="boardBtnBox">
+		<button class="btn btn-normal" ng-click="ShowNewPin = !ShowNewPin; createPin()">Create New Pin</button>
+	</div>
+	<img src="img/puddle-jump.jpeg" />
 </div>
