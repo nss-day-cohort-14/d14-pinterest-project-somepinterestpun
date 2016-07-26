@@ -1,8 +1,11 @@
 "use strict";
 
-app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageService){
+app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageService, $rootScope){
 	let userExists = null
 	let currentUser = null
+
+	$rootScope.searchText = {};
+	$rootScope.searchText.search = ""
 	$scope.login = function(){
 		let provider = new firebase.auth.GoogleAuthProvider();
 		firebase.auth().signInWithPopup(provider).then(function(user){
