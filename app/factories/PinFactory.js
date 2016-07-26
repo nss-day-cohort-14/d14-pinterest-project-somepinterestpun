@@ -37,5 +37,27 @@ app.factory("PinFactory", function(FirebaseURL, $q, $http, $routeParams){
                 });
         });
 	}
-	return {getPins, savePinsId}
+  let addPin = function(newPin) {
+       return $q(function(resolve, reject) {
+           $http.post(`${FirebaseURL}/pins.json`,
+               JSON.stringify(newPin))
+               .success(function(ObjFromFirebase) {
+                       console.log(ObjFromFirebase)
+                   resolve(ObjFromFirebase)
+               })
+               .error(function (error) {
+                   reject (error);
+               });
+       });
+   };
+   let deletePin = function(removeId) {
+          let pinUrl = FirebaseURL + "/pins/" + removeId + ".json";
+          return $q(function(resolve, reject) {
+              $http.delete(pinUrl)
+              .success(function() {
+                  resolve();
+          });
+        });
+      };
+	return {getPins, savePinsId, addPin, deletePin}
 });
