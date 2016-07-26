@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("PinFactory", function(FirebaseURL, $q, $http, $routeParams){
+app.factory("PinFactory", function(FirebaseURL, $q, $http, $routeParams, localStorageService){
 
   let getPins = function() {
 		let pins = [];
@@ -8,6 +8,29 @@ app.factory("PinFactory", function(FirebaseURL, $q, $http, $routeParams){
 			let boardId = $routeParams.id
 			console.log("board id?", boardId);
 			$http.get(`${FirebaseURL}/pins.json?orderBy="boardid"&equalTo="${boardId}"`)
+			.success(function(pinsObject) {
+				let pinsCollection = pinsObject;
+				//create array from object and loop thru keys - saving fb key for each item inside the obj as an id property
+				Object.keys(pinsCollection).forEach(function(key){
+					pinsCollection[key].id=key;
+					pins.push(pinsCollection[key]);
+				});
+				console.log("pins:", pins);
+				resolve(pins);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+	  let getAllPins = function() {
+	  let user = localStorageService.get("currentUser");
+	  let uid = user.uid;
+	  console.log("uid", uid)
+		let pins = [];
+		return $q(function(resolve, reject) {
+
+			$http.get(`${FirebaseURL}/pins.json?orderBy="uid"&equalTo="${uid}"`)
 			.success(function(pinsObject) {
 				let pinsCollection = pinsObject;
 				//create array from object and loop thru keys - saving fb key for each item inside the obj as an id property
@@ -59,5 +82,5 @@ app.factory("PinFactory", function(FirebaseURL, $q, $http, $routeParams){
           });
         });
       };
-	return {getPins, savePinsId, addPin, deletePin}
+	return {getPins, savePinsId, addPin, deletePin, getAllPins}
 });
