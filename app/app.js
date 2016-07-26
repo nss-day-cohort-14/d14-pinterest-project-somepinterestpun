@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/profile.html',
             controller: 'ProfileCtrl'
         }).
-        when('/profile/board/:id', {
+        when('/board/:id', {
             templateUrl: 'partials/board.html',
             controller: 'BoardCtrl'
         }).
