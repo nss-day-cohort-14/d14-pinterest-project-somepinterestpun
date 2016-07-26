@@ -20,7 +20,8 @@
 	<input type="text" placeholder="Title" ng-model="pinTitle"/>
 	<input type="text" placeholder="Image URL" ng-model="pinUrl"/>
 	<div class="boardBtnBox">
-		<button class="btn btn-normal" ng-click="ShowNewPin = !ShowNewPin; createPin()">Create New Pin</button>
+		<button class="btn btn-normal" ng-click="createPin()">Add</button>
+		<button class="btn btn-danger" ng-click="ShowNewPin = !ShowNewPin">X</button>
 	</div>
 	<img src="img/puddle-jump.jpeg" />
 </div>
