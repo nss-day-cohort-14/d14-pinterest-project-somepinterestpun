@@ -1,11 +1,13 @@
 "use strict";
 
-app.factory("BoardFactory", function(FirebaseURL, $q, $http){
+app.factory("BoardFactory", function(FirebaseURL, $q, $http, localStorageService){
 
 	let getBoards = function() {
 		let board = [];
 		return $q(function(resolve, reject) {
-			let userId = firebase.auth().currentUser.uid
+			let currentUser = localStorageService.get('currentUser');
+			console.log(currentUser);
+			let userId = currentUser.uid
 			console.log("user id?", userId);
 			$http.get(`${FirebaseURL}/board.json?orderBy="uid"&equalTo="${userId}"`)
 			.success(function(boardObject) {
@@ -45,7 +47,7 @@ app.factory("BoardFactory", function(FirebaseURL, $q, $http){
             .success(function() {
                 resolve();
         });
-      });  
+      });
     };
 
     let postNewBoard = function(newBoard) {
