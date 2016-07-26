@@ -24,7 +24,6 @@ app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageS
 				}
 			})
 			.then(function(){
-				console.log(userExists)
 				if(userExists === false){
 					let userObject = {
 						name: currentUser.displayName,

@@ -13,7 +13,8 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 
 	PinFactory.getAllPins()
 	.then(function(pins){
-		console.log("pins", pins)
+		$scope.pinNumber = pins.length;
+		console.log("pinnum", $scope.pinNumber)
 	})
 
 	$scope.Remove = function (removeId) {
