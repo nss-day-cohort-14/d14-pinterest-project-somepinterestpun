@@ -4,20 +4,21 @@
 </div>
 <button class="newBtnBoard btn btn-normal" id="btnToBoardView" ng-click="ShowNewBoard = !ShowNewBoard">Add New Board</button>
 <div class="row">
-	<div ng-repeat="board in boards">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="col-xs-7 profCard">
-					<h1><a href="#/board/{{board.id}}">Title: {{board.title}}</a></h1>
-					<h3>Description: {{board.description}}</h3>
-				</div>
-				<div class="col-xs-1" >
-						<button class="btn btn-danger"  ng-click="Remove(board.id)">X</button>
-				</div>
+	<div ng-repeat="board in boards | filter:searchText.search">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-xs-7 profCard">
+						<h1><a href="#/board/{{board.id}}">Title: {{board.title}}</a></h1>
+						<h3>Description: {{board.description}}</h3>
+					</div>
+					<div class="col-xs-1">
+						<button class="btn btn-danger" ng-click="Remove(board.id)">X</button>
+					</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <div class="newBoard" ng-show="ShowNewBoard">
 	<h2>Make a new board!</h2>
