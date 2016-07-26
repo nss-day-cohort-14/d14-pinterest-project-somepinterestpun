@@ -32,18 +32,22 @@
 	-moz-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
 	box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
 
+}
+
+.thumbnail {
+	width: 200px;
+	height: 200px;
+}
+
   h2 {
     text-align: center;
-<<<<<<< HEAD
-=======
+
     margin-bottom: 20px;
->>>>>>> master
+
   }
 
   input {
     display: block;
-<<<<<<< HEAD
-=======
     margin: 10px auto;
   }
 
@@ -57,32 +61,7 @@
     width: 200px;
     margin: 10px auto;
     border: 2px solid black;
->>>>>>> master
-  }
 }
-
-// .single-btn {
-//   margin-left: 40px;
-// }
-
-
-
-
-
-// .make-xs-column(@columns; @gutter: @grid-gutter-width) {
-//   position: relative;
-//   // Prevent columns from collapsing when empty
-//   min-height: 1px;
-//   // Inner gutter via padding
-//   padding-left:  (@gutter / 2);
-//   padding-right: (@gutter / 2);
-//
-//   // Calculate width based on number of columns available
-//   @media (min-width: @grid-float-breakpoint) {
-//     float: left;
-//     width: percentage((@columns / @grid-columns));
-//   }
-// };
 
 #splashView {
   font-family: 'Titillium Web', sans-serif;
