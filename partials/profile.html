@@ -1,4 +1,4 @@
-<h1>Hello, {{user.name}}</h1>
+<h1>Hello, {{user.displayName}}</h1>
 <h5><a href="mailto:{{user.email}}?Subject=Notification%20from%20Pinterest">{{user.email}}</a></h5>
 <button class="newBtnBoard btn btn-normal" ng-click="ShowNewBoard = !ShowNewBoard">Add New Board</button>
 <div class="row">
@@ -6,9 +6,6 @@
 		
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="col-xs-1">
-						<input type="checkbox"/>
-					</div>
 					<div class="col-xs-7 profCard"> 
 						<h1><a href="#/board/{{board.id}}">Title: {{board.title}}</a></h1>
 						<h3>Description: {{board.description}}</h3>

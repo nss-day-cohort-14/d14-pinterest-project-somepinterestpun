@@ -7,16 +7,6 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 		return boardCollection;
 	})
 
-	//
-	// $scope.DisplayUserDetails = function () {
-	// 	let userObj = {}
-	// 	 userObj.name = firebase.auth().currentUser.displayName;
-	// 	 userObj.email = firebase.auth().currentUser.email;
-	// 	return userObj
-	// }
-	// $scope.user = $scope.DisplayUserDetails()
-	// console.log($scope.user);
-
 	$scope.Remove = function (removeId) {
 		BoardFactory.deleteBoard(removeId)
 		.then(function () {
@@ -26,7 +16,8 @@ app.controller('ProfileCtrl', function($scope, $location, BoardFactory, UserFact
 			});
 		});
 	}
-let currentUser = localStorageService.get("currentUser");
+	let currentUser = localStorageService.get("currentUser");
+	$scope.user = currentUser;
 	$scope.newBoard = {
 		description: "",
 		title: "",

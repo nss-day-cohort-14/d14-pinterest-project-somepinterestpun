@@ -1,20 +1,11 @@
-<h1>Hello, {{user.name}}</h1>
-<h5><a href="mailto:{{user.email}}?Subject=Notification%20from%20Pinterest">{{user.email}}</a></h5>
 <button class="newBtnBoard btn btn-normal" ng-click="ShowNewPin = !ShowNewPin">Add New Pin</button>
 <div class="row">
 <div ng-repeat="pin in pins">
 
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="col-xs-1">
-						<input type="checkbox"/>
-					</div>
 					<div class="col-xs-7 profCard">
-						<h1><a href="#/pin/{{pin.id}}">Title: {{pin.title}}</a></h1>
-						<h3>Description: {{pin.description}}</h3>
-					</div>
-					<div class="col-xs-1">
-						<button class="btn btn-normal" ng-click="ShowNewPin = !ShowNewPin">Add</button>
+						<h1><a href="{{pin.url}}" target="_blank">Title: {{pin.title}}</a></h1>
 					</div>
 					<div class="col-xs-1">
 						<button class="btn btn-danger" ng-click="Remove(pin.id)">X</button>
@@ -26,6 +17,6 @@
 
 <div class="newBoard" ng-show="ShowNewPin">
 	<input type="text" placeholder="Title" ng-model="pinTitle"/>
-	<input type="text" placeholder="Description" ng-model="pinUrl"/>
+	<input type="text" placeholder="URL" ng-model="pinUrl"/>
 	<button class="btn btn-normal" ng-click="ShowNewPin = !ShowNewPin; createPin()">Create New Pin</button>
 </div>
