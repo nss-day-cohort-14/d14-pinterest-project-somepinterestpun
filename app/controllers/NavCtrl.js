@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('NavCtrl', function($scope, $location, UserFactory){
+app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageService){
 	$scope.login = function(){
 		let provider = new firebase.auth.GoogleAuthProvider();
 		firebase.auth().signInWithPopup(provider).then(function(user){
@@ -41,6 +41,7 @@ app.controller('NavCtrl', function($scope, $location, UserFactory){
 	}
 	firebase.auth().onAuthStateChanged(function(user){
 		if(user){
+			localStorageService.set("currentUser", user)
 			$scope.$apply(function(){
 				$scope.loggedin = true;
 			})
