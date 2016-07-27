@@ -1,5 +1,23 @@
 .welcome {
-  margin-left: 20px;
+  display: inline;
+  margin: 0 25%;
+  
+  h1 {
+    display: inline;
+    margin-right: 30px;
+  }
+
+  h5 {
+    display: inline;
+    // font-size: 1.5em;
+  }
+}
+
+.newBtnBoard {
+  display: block;
+  margin: 10px 42%;
+  background: #e67e22;
+  color: white;
 }
 
 .profCard {
@@ -19,31 +37,22 @@
 }
 
 .newBoard {
-	height: 500px;
-	width: 500px;
-	z-index: 1000;
-	position: absolute;
-	top: 20%;
-	left: 30%;
-	background-color: white;
+    height: 500px;
+    width: 500px;
+    z-index: 1000;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    background-color: white;
   border: 2px solid black;
   border-radius: 7px;
-	-webkit-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
-	-moz-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
-	box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
-
-}
-
-.thumbnail {
-	width: 200px;
-	height: 200px;
-}
+    -webkit-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
+    -moz-box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
+    box-shadow: 40px 46px 182px 58px rgba(0,0,0,0.75);
 
   h2 {
     text-align: center;
-
     margin-bottom: 20px;
-
   }
 
   input {
@@ -61,7 +70,31 @@
     width: 200px;
     margin: 10px auto;
     border: 2px solid black;
+  }
 }
+
+// .single-btn {
+//   margin-left: 40px;
+// }
+
+
+
+
+
+// .make-xs-column(@columns; @gutter: @grid-gutter-width) {
+//   position: relative;
+//   // Prevent columns from collapsing when empty
+//   min-height: 1px;
+//   // Inner gutter via padding
+//   padding-left:  (@gutter / 2);
+//   padding-right: (@gutter / 2);
+//
+//   // Calculate width based on number of columns available
+//   @media (min-width: @grid-float-breakpoint) {
+//     float: left;
+//     width: percentage((@columns / @grid-columns));
+//   }
+// };
 
 #splashView {
   font-family: 'Titillium Web', sans-serif;
@@ -70,7 +103,6 @@
 
   #heroImg {
     position: absolute;
-    // border: 3px solid white;
     margin: -20px 9% 0;
     height: 800px;
     width: 80%;
@@ -83,7 +115,6 @@
     #tagline {
       font-size: 3em;
       display: block;
-      // position: relative;
       float: right;
       text-align: center;
       color: white;
@@ -131,3 +162,29 @@
     }
   }
 }
+.numbers {
+  margin-left: 40%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // align-items: center;
+}
+.spanNumber {
+  margin-bottom: 3px;
+}
+
+.h3Number {
+  display: inline;
+  color: tomato;
+  margin-left: 3px;
+  margin-top: -8px;
+}
+
+
+
+
+
+
+
+
+
