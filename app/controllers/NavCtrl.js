@@ -55,6 +55,7 @@ app.controller('NavCtrl', function($scope, $location, UserFactory, localStorageS
 			$scope.$apply(function(){
 				$scope.loggedin = false;
 			})
+			localStorageService.set("currentUser", "null")
 		}
 	})
 })

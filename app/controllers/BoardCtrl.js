@@ -4,7 +4,6 @@ app.controller('BoardCtrl', function($scope, $location, PinFactory, UserFactory,
 	PinFactory.getPins()
 	.then(function(pinsCollection) {
 		$scope.pins = pinsCollection
-		// return pinsCollection;
 	})
   .then(function(){
     console.log($scope.pins);
@@ -20,6 +19,7 @@ app.controller('BoardCtrl', function($scope, $location, PinFactory, UserFactory,
         }
         PinFactory.addPin(newPin)
         .then(function () {
+        $scope.ShowNewPin = false;
     		PinFactory.getPins()
         .then(function (pinsCollection) {
   			$scope.pins = pinsCollection
