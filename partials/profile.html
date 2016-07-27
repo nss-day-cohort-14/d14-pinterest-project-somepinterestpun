@@ -1,8 +1,10 @@
 <div class="welcome">
 	<h1>Hello, {{user.displayName}}!</h1>
-	<h3>{{boardNumber}}</h3>
-	<h3>{{pinNumber}}</h3>
 	<h5><a href="mailto:{{user.email}}?Subject=Notification%20from%20Pinterest">{{user.email}}</a></h5>
+</div>
+<div class="numbers">
+	<span class="boardNumber spanNumber">Total number of Boards:  <h3 class="h3Number">{{boardNumber}}</h3></span>
+	<span class="pinNumber spanNumber">Total number of Pins:  <h3 class="h3Number">{{pinNumber}}</h3></span>
 </div>
 
 <button class="newBtnBoard btn btn-normal" ng-click="ShowNewBoard = !ShowNewBoard">Add New Board</button>
@@ -11,8 +13,8 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="col-xs-7 profCard">
-						<h1><a href="#/board/{{board.id}}">Title: {{board.title}}</a></h1>
-						<h3>Description: {{board.description}}</h3>
+						<h1><a href="#/board/{{board.id}}">{{board.title}}</a></h1>
+						<h3>{{board.description}}</h3>
 					</div>
 					<div class="col-xs-1">
 						<button class="btn btn-danger" ng-click="Remove(board.id)">X</button>
